@@ -11,8 +11,8 @@ angular.module('appyApp')
   .controller('AboutCtrl', function () {
 
     var tileArray = [];
-    var arrayX = 10;
-    var arrayY = 10;
+    var arrayX = 15;
+    var arrayY = 15;
     for (var i=0;i<arrayX;i++){
       var tempArray = [];
       for (var j=0;j<arrayY;j++){

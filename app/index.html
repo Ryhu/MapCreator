@@ -20,42 +20,39 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" href="#/">appy</a>
+    <div class="container" ng-controller="MainCtrl as main">
+d
+      <div>
+        <div class="sidebar">
+          <div class="sidebarBox">
+            <img ng-src="pics/grass.png">
           </div>
+          <div class="sidebarBox">
+            <img ng-src="pics/grass.png">
+          </div>
+          <div class="sidebarBox">
+            <img ng-src="pics/grass.png">
+          </div>
+        </div>
 
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ui-sref="about">About</a></li>
-              <li><a >Contact</a></li>
-            </ul>
+        <div class="bigthing container noselect col-md-1" >
+          <div ng-repeat="(index, value) in main.tiles" >
+            <div class="row boxrow">
+              <div class="box col-sm-1 nopadding" ng-click="main.increment(index,index2)" ng-repeat="(index2, value2) in value track by $index">
+                <img ng-src="{{main.tilePicker(index,index2)}}">
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <!--
+      <button ng-click="main.ade()">hi</button>
 
-    <div ui-view class="container">
-    <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
-    <div ng-include="'views/about.html'" ng-controller="AboutCtrl as about"></div>
-    </div>
+      <button ng-click="main.increment(index)">he</button>
+    -->
 
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
+
     </div>
 
 
@@ -82,7 +79,6 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
         <!-- endbuild -->
 </body>
 </html>

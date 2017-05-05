@@ -1,20 +1,33 @@
-<div ng-controller="AboutCtrl as about">
+<div class="container" ng-controller="AboutCtrl as about">
+sssss
+  <div class="row">
+    <div class="sidebar col-md-1 ">
+      <div class="box">
+        <img ng-src="pics/grass.png">
+      </div>
+      <div class="box">
+        <img ng-src="pics/grass.png">
+      </div>
+      <div class="box">
+        <img ng-src="pics/grass.png">
+      </div>
+    </div>
 
-ddd
-{{about.tiles}}
-<div class="container noselect">
-  <div ng-repeat="(index, value) in about.tiles" >
-    <div class="row boxrow">
-      <div class="box col-sm-1 nopadding" ng-click="about.increment(index,index2)" ng-repeat="(index2, value2) in value track by $index">
-        <img ng-src="{{about.tilePicker(index,index2)}}">
+    <div class="bigthing container noselect col-md-1" >
+      <div ng-repeat="(index, value) in about.tiles" >
+        <div class="row boxrow">
+          <div class="box col-sm-1 nopadding" ng-click="about.increment(index,index2)" ng-repeat="(index2, value2) in value track by $index">
+            <img ng-src="{{about.tilePicker(index,index2)}}">
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<button ng-click="about.ade()">hi</button>
 
-<button ng-click="about.increment(index)">he</button>
+  <button ng-click="about.ade()">hi</button>
+
+  <button ng-click="about.increment(index)">he</button>
 
 
 
