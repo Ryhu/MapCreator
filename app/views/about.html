@@ -1,16 +1,13 @@
 <div ng-controller="AboutCtrl as about">
 
-XXx
+ddd
 {{about.tiles}}
-
+{{about.whate}}
 <div class="container">
   <div ng-repeat="(index, value) in about.tiles" >
     <div class="row boxrow">
-      {{index}}
-      {{value}}
-      <div class="box col-sm-1" ng-click="increment(index,index2)" ng-repeat="(index2, value2) in value track by $index">
-        {{index}},{{index2}}
-        {{value2}}
+      <div class="box col-sm-1 nopadding" ng-click="about.increment(index,index2)" ng-repeat="(index2, value2) in value track by $index">
+        <img ng-src="{{about.tilePicker(index,index2)}}">
       </div>
     </div>
   </div>
@@ -18,11 +15,22 @@ XXx
 
 
 
+      <div class="box col-sm-1">
+        <img src="pics/grass.png">
+      </div>
 
 
 
 
+<button ng-click="about.ade()">hi</button>
 
+<button ng-click="about.increment(index)">heeehaaa</button>
+{{about.tiles}}
+
+ddddd
+<img ng-src="{{about.grass}}"></img>
+<img src="pics/grass.png"></img>
+<img src="pics/forest.png"></img>
 
 
 

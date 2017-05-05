@@ -91,14 +91,15 @@ body {
 }
 
 .box{
-  height: 50px;
-  width: 50px;
+  height: 66px;
+  width: 66px;
   background-color:red;
   border-style: solid;
   border-width: thin;
   //display:inline-block;
 }
 
-.boxrow{
-  list-style: none;
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
 }
