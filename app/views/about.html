@@ -1,0 +1,36 @@
+<div ng-controller="AboutCtrl as about">
+
+XXx
+{{about.tiles}}
+
+<div class="container">
+  <div ng-repeat="(index, value) in about.tiles" >
+    <div class="row boxrow">
+      {{index}}
+      {{value}}
+      <div class="box col-sm-1" ng-click="increment(index,index2)" ng-repeat="(index2, value2) in value track by $index">
+        {{index}},{{index2}}
+        {{value2}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
