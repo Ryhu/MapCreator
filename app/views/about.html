@@ -2,8 +2,7 @@
 
 ddd
 {{about.tiles}}
-{{about.whate}}
-<div class="container">
+<div class="container noselect">
   <div ng-repeat="(index, value) in about.tiles" >
     <div class="row boxrow">
       <div class="box col-sm-1 nopadding" ng-click="about.increment(index,index2)" ng-repeat="(index2, value2) in value track by $index">
@@ -13,24 +12,11 @@ ddd
   </div>
 </div>
 
-
-
-      <div class="box col-sm-1">
-        <img src="pics/grass.png">
-      </div>
-
-
-
-
 <button ng-click="about.ade()">hi</button>
 
-<button ng-click="about.increment(index)">heeehaaa</button>
-{{about.tiles}}
+<button ng-click="about.increment(index)">he</button>
 
-ddddd
-<img ng-src="{{about.grass}}"></img>
-<img src="pics/grass.png"></img>
-<img src="pics/forest.png"></img>
+
 
 
 
