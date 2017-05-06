@@ -22,29 +22,30 @@ angular.module('appyApp')
         }
 
         this.grass ='pics/grass.png';
-
-
-
-
-
         this.tiles = tileArray;
         this.numba = 5;
+        this.selected = 'pics/grass.png';
+        this.selectedID = 0;
+        this.tileSet = {
+          0: 'pics/grass.png',
+          1: 'pics/forest.png',
+          2: 'pics/mountain.png'
+        };
+
+        this.select = function(num){
+          $("#tile"+ this.selectedID).removeClass("selected");
+          this.selected = this.tileSet[num]
+          this.selectedID = num;
+          $("#tile"+num).addClass("selected");
+        };
 
         this.increment = function(index,index2){
           this.tiles[index][index2]++;
         };
 
-
         this.tilePicker = function(index,index2){
-          var tile = this.tiles[index][index2]%3;
-          if (tile == 0){
-            return 'pics/grass.png';
-          }
-          else if (tile == 1){
-            return 'pics/forest.png';
-          }
-          else if (tile == 2){
-            return 'pics/mountain.png';
-          };
+
+          return this.selected;
+
         };
   });

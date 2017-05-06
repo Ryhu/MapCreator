@@ -22,18 +22,18 @@
     <!-- Add your site or application content here -->
 
     <div class="container" ng-controller="MainCtrl as main">
-d
+      <div class="changeCheck">
+        <p>
+          {{main.tileSet[1]}}sss
+        </p>
+      </div>
+
       <div>
         <div class="sidebar">
-          <div class="sidebarBox">
-            <img ng-src="pics/grass.png">
+          <div id="tile{{index}}" class="sidebarBox" ng-click="main.select(index)" ng-repeat="(index, value) in main.tileSet">
+            <img ng-src="{{value}}">
           </div>
-          <div class="sidebarBox">
-            <img ng-src="pics/grass.png">
-          </div>
-          <div class="sidebarBox">
-            <img ng-src="pics/grass.png">
-          </div>
+
         </div>
 
         <div class="bigthing container noselect col-md-1" >

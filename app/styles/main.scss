@@ -4,6 +4,17 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // endbower
 
 
+.changeCheck{
+  height:50px;
+  width:100%;
+  background-color:grey;
+  margin-bottom:20px;
+  padding-top:10px;
+  font-size:20px;
+  color:white;
+  text-align:center;
+}
+
 .box{
   height: 66px;
   width: 66px;
@@ -11,15 +22,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   border-width: thin;
 }
 .sidebarBox{
-  height: 74px;
-  width: 74px;
-  border-style: solid;
-  border-width: 5px;
+  border-style: dashed;
+  border-width: 11px;
   border-color: black;
+  border-spacing: 1px;
 }
 
 .sidebar{
-  max-width: 100px;
+  max-width: 110px;
   float:right;
   background-color:black;
   padding-left: 10px;
@@ -36,7 +46,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   display:inline-block;
 }
 
+.selected{
 
+  border-color:yellow;
+
+}
 
 
 
