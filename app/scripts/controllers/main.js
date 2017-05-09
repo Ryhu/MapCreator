@@ -31,21 +31,41 @@ angular.module('appyApp')
           1: 'pics/forest.png',
           2: 'pics/mountain.png'
         };
-
+        this.key = "a";
         this.select = function(num){
           $("#tile"+ this.selectedID).removeClass("selected");
-          this.selected = this.tileSet[num]
+          this.selected = this.tileSet[num];
           this.selectedID = num;
           $("#tile"+num).addClass("selected");
         };
 
-        this.increment = function(index,index2){
-          this.tiles[index][index2]++;
+        this.tileUpdate = function(index,index2){
+          return this.tileSet[this.tiles[index][index2]];
         };
 
-        this.tilePicker = function(index,index2){
+        this.tileSetter = function(index,index2){
+          this.tiles[index][index2] = this.selectedID;
+        };
 
-          return this.selected;
+        this.buttonPress = function(event){
+          this.numba++;
+          console.log(event);
+          if (event.keyCode == 81){
+            this.select(0);
+          }
+          else if (event.keyCode == 87){
+            this.select(1);
+          }
+          else if (event.keyCode == 69){
+            this.select(2);
+          }
 
         };
+
+
+
+
+
+
+
   });

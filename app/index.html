@@ -21,30 +21,32 @@
 
     <!-- Add your site or application content here -->
 
-    <div class="container" ng-controller="MainCtrl as main">
-      <div class="changeCheck">
+    <div class="container" tabindex="0" ng-keydown="main.buttonPress($event)" ng-controller="MainCtrl as main">
+      <div id="oke" class="changeCheck">
         <p>
-          {{main.tileSet[1]}}sss
+          {{main.tileSet[1]}}{{main.county}}d{{main.key}}{{main.numba}}
         </p>
       </div>
-
+      <input ng-keydown="buttonPress()"></input>
       <div>
-        <div class="sidebar">
+        <div class="sidebar noselect" ondragstart="return false;">
           <div id="tile{{index}}" class="sidebarBox" ng-click="main.select(index)" ng-repeat="(index, value) in main.tileSet">
             <img ng-src="{{value}}">
           </div>
 
         </div>
 
-        <div class="bigthing container noselect col-md-1" >
+        <div ondragstart="return false;" class="bigthing container noselect col-md-1" >
           <div ng-repeat="(index, value) in main.tiles" >
             <div class="row boxrow">
-              <div class="box col-sm-1 nopadding" ng-click="main.increment(index,index2)" ng-repeat="(index2, value2) in value track by $index">
-                <img ng-src="{{main.tilePicker(index,index2)}}">
+              <div class="box col-sm-1 nopadding" ng-click="main.tileSetter(index,index2)" ng-repeat="(index2, value2) in value track by $index" ondragover="main.tileSetter(index,index2)">
+                <img ng-src="{{main.tileUpdate(index,index2)}}">
               </div>
             </div>
           </div>
         </div>
+        <button ng-click="main.buttonPress()">hihi</button>
+        {{main.county}}
       </div>
       <!--
       <button ng-click="main.ade()">hi</button>
