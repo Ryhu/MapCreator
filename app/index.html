@@ -21,7 +21,7 @@
 
     <!-- Add your site or application content here -->
 
-    <div class="container" ng-controller="MainCtrl as main">
+    <div class="container" ng-controller="MainCtrl">
       <div id="oke" class="changeCheck">
         <p>
           {{main.tileSet[1]}}{{main.county}}f{{main.key}}{{main.numba}}
@@ -29,23 +29,26 @@
       </div>
       <div>
         <div class="sidebar noselect" ondragstart="return false;" >
-          <div id="tile{{index}}" class="sidebarBox" ng-click="main.select(index)" ng-repeat="(index, value) in main.tileSet">
+          <div id="tile{{index}}" class="sidebarBox" ng-click="main.select(index)" ng-repeat="(index, value) in tileSet">
             <img ng-src="{{value}}">
           </div>
 
         </div>
 
-        <div ondragstart="return false;" class="bigthing container noselect col-md-1" tabindex="0" ng-keydown="main.buttonPress($event)">
-          <div ng-repeat="(index, value) in main.tiles" >
+        <div ondragstart="return false;" class="bigthing container noselect col-md-1" tabindex="0" ng-keydown="buttonPress($event)">
+          <div ng-repeat="(index, value) in tiles" >
             <div class="row boxrow">
-              <div class="box col-sm-1 nopadding" ng-click="main.tileSetter(index,index2)" ng-repeat="(index2, value2) in value track by $index" ondragover="main.tileSetter(index,index2)">
-                <img ng-src="{{main.tileUpdate(index,index2)}}">
+              <div class="box col-sm-1 nopadding" ng-click="tileSetter(index,index2)" ng-repeat="(index2, value2) in value track by $index" ondragover="main.tileSetter(index,index2)">
+                <img ng-src="{{tileUpdate(index,index2)}}">
               </div>
             </div>
           </div>
         </div>
         <button ng-click="main.buttonPress()">hihi</button>
-        <div my-shared-scope></div>
+        <div simple>"Sdgdfgfdgdfg"</div>
+        <div simple>"Sdgdfgfdgdfg"</div>
+        <p> {{mousedn}}</p>
+        <p> {{numba}}</p>
       </div>
       <!--
       <button ng-click="main.ade()">hi</button>

@@ -8,24 +8,41 @@
  * Controller of the appyApp
  */
 angular.module('appyApp')
-.directive('mySharedScope', function () {
-  return {
-      controller:"MainCtrl as main",
-      template: 'Name: {{main.mouse}}<br /> Street: {{main.grass}}',
-      link: function ($scope, element, attrs, ctrl) {
 
-          element.on('mousedown', function () {
+  .directive('simple', function () {
+    var thing = function(scope, element, attrs){
+      element.on("click", function (event) {
+        scope.numba++;
+        console.log(scope.numba);
+      })
+    }
 
+
+    return{
+      restrict: 'A',
+      link: thing
+    }
+  })
+
+
+  .directive('mySharedScope', function () {
+        return {
+          controller:"MainCtrl as main",
+          template: 'Name: {{mousedn}}<br /> Street: {{grass}}',
+          link: function ($scope, element, attrs, main) {
+
+            element.on('mousedown', function ($scope) {
               element.css('background-color', 'yellow');
-          });
-          element.on('mouseup', function () {
-              console.log(ctrl);
+              main.mousedn = "true";
+            });
+            element.on('mouseup', function () {
               element.css('background-color', 'white');
-          });
-      }
-  };
-})
-  .controller('MainCtrl', function () {
+              main.mousedn = "false";
+            });
+          }
+        };
+  })
+  .controller('MainCtrl', function ($scope) {
         var tileArray = [];
         var arrayX = 15;
         var arrayY = 15;
@@ -36,17 +53,17 @@ angular.module('appyApp')
           }
           tileArray.push(tempArray);
         }
+        $scope.test = 0;
+        $scope.grass ='pics/grass.png';
+        $scope.tiles = tileArray;
+        $scope.numba = 5;
+        $scope.selected = 'pics/grass.png';
+        $scope.selectedID = 0;
 
-        this.grass ='pics/grass.png';
-        this.tiles = tileArray;
-        this.numba = 5;
-        this.selected = 'pics/grass.png';
-        this.selectedID = 0;
-
-        this.mouse = "ghh";
+        $scope.mousedn = "ghh";
 
 
-        this.tileSet = {
+        $scope.tileSet = {
           0: 'pics/grass.png',
           1: 'pics/forest.png',
           2: 'pics/mountain.png',
@@ -55,7 +72,7 @@ angular.module('appyApp')
           5: 'pics/roadV.png',
           6: 'pics/roadH.png'
         };
-        this.buttonCodes = {
+        $scope.buttonCodes = {
           81: 0,
           87: 1,
           69: 2,
@@ -66,29 +83,29 @@ angular.module('appyApp')
 
 
         }
-        this.key = "a";
-        this.select = function(num){
-          $("#tile"+ this.selectedID).removeClass("selected");
-          this.selected = this.tileSet[num];
-          this.selectedID = num;
+        $scope.key = "a";
+        $scope.select = function(num){
+          $("#tile"+ $scope.selectedID).removeClass("selected");
+          $scope.selected = $scope.tileSet[num];
+          $scope.selectedID = num;
           $("#tile"+num).addClass("selected");
         };
 
-        this.tileUpdate = function(index,index2){
-          return this.tileSet[this.tiles[index][index2]];
+        $scope.tileUpdate = function(index,index2){
+          return $scope.tileSet[$scope.tiles[index][index2]];
         };
 
-        this.tileSetter = function(index,index2){
-          this.tiles[index][index2] = this.selectedID;
+        $scope.tileSetter = function(index,index2){
+          $scope.tiles[index][index2] = $scope.selectedID;
         };
 
-        this.buttonPress = function(event){
+        $scope.buttonPress = function(event){
           console.log(event.keyCode);
-          this.select(this.buttonCodes[event.keyCode]);
+          $scope.select($scope.buttonCodes[event.keyCode]);
         };
 
-        this.addy = function(){
-          this.numba++;
+        $scope.addy = function(){
+          $scope.numba++;
         }
 
 
