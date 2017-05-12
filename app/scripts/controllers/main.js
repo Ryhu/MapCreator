@@ -11,14 +11,32 @@ angular.module('appyApp')
 
   .directive('simple', function () {
     var thing = function(scope, element, attrs){
-      element.on("click", function (event) {
-        scope.numba++;
-        console.log(scope.numba);
-      })
+
+
+      element.on("mousedown", function(){
+        scope.mousedn = true;
+        console.log(scope.mousedn);
+      });
+
+      element.on("mouseover", function () {
+        console.log(scope.numbe);
+        console.log(scope.numbr);
+        if (scope.mousedn){
+
+          element.css('background-color', 'yellow');
+        };
+      });
+
+
+      element.on("mouseup", function(){
+        scope.mousedn = false;
+      });
     }
 
 
     return{
+      scope: { numbe: "@",
+               numbr: "@"},
       restrict: 'A',
       link: thing
     }
@@ -60,7 +78,7 @@ angular.module('appyApp')
         $scope.selected = 'pics/grass.png';
         $scope.selectedID = 0;
 
-        $scope.mousedn = "ghh";
+        $scope.mousedn = false;
 
 
         $scope.tileSet = {
