@@ -29,7 +29,7 @@
       </div>
       <div>
         <div class="sidebar noselect" ondragstart="return false;" >
-          <div id="tile{{index}}" class="sidebarBox" ng-click="main.select(index)" ng-repeat="(index, value) in tileSet">
+          <div id="tile{{index}}" class="sidebarBox" ng-mousedown="select(index)" ng-repeat="(index, value) in tileSet">
             <img ng-src="{{value}}">
           </div>
 
@@ -38,7 +38,7 @@
         <div ondragstart="return false;" class="bigthing container noselect col-md-1" tabindex="0" ng-keydown="buttonPress($event)">
           <div ng-repeat="(index, value) in tiles" >
             <div class="row boxrow">
-              <div class="box col-sm-1 nopadding" ng-click="tileSetter(index,index2)" ng-repeat="(index2, value2) in value track by $index" ondragover="main.tileSetter(index,index2)">
+              <div class="box col-sm-1 nopadding" ng-mouseup="mouseUp()" ng-mousedown="tileSetter(index,index2)" ng-mouseover="mouseIf(index,index2)" ng-repeat="(index2, value2) in value track by $index" ondragover="main.tileSetter(index,index2)">
                 <img ng-src="{{tileUpdate(index,index2)}}">
               </div>
             </div>

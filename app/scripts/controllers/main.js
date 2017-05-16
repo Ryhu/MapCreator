@@ -8,58 +8,6 @@
  * Controller of the appyApp
  */
 angular.module('appyApp')
-
-  .directive('simple', function () {
-    var thing = function(scope, element, attrs){
-
-
-      element.on("mousedown", function(){
-        scope.mousedn = true;
-        console.log(scope.mousedn);
-      });
-
-      element.on("mouseover", function () {
-        console.log(scope.numbe);
-        console.log(scope.numbr);
-        if (scope.mousedn){
-
-          element.css('background-color', 'yellow');
-        };
-      });
-
-
-      element.on("mouseup", function(){
-        scope.mousedn = false;
-      });
-    }
-
-
-    return{
-      scope: { numbe: "@",
-               numbr: "@"},
-      restrict: 'A',
-      link: thing
-    }
-  })
-
-
-  .directive('mySharedScope', function () {
-        return {
-          controller:"MainCtrl as main",
-          template: 'Name: {{mousedn}}<br /> Street: {{grass}}',
-          link: function ($scope, element, attrs, main) {
-
-            element.on('mousedown', function ($scope) {
-              element.css('background-color', 'yellow');
-              main.mousedn = "true";
-            });
-            element.on('mouseup', function () {
-              element.css('background-color', 'white');
-              main.mousedn = "false";
-            });
-          }
-        };
-  })
   .controller('MainCtrl', function ($scope) {
         var tileArray = [];
         var arrayX = 15;
@@ -114,7 +62,18 @@ angular.module('appyApp')
         };
 
         $scope.tileSetter = function(index,index2){
+          $scope.mousedn = true;
           $scope.tiles[index][index2] = $scope.selectedID;
+        };
+
+        $scope.mouseIf = function (index, index2){
+          if ($scope.mousedn){
+            $scope.tileSetter(index, index2);
+          };
+        };
+
+        $scope.mouseUp = function(){
+          $scope.mousedn = false;
         };
 
         $scope.buttonPress = function(event){
